@@ -7,13 +7,9 @@ async function signup (req, res) {
   const user = new User(req.body)
   try {
     await user.save()
-
     const token = createJWT(user)
-
     res.json({ token })
   } catch (err) {
-    console.log(err)
-
     // POSSIBLY EMAIL ERROR
     res.status(400).json(err)
   }
@@ -21,11 +17,9 @@ async function signup (req, res) {
 
 async function login (req, res) {
   try {
-    const user = await User.findOne(
-      {
-        email: req.body.email
-      }
-    )
+    const user = await User.findOne({
+      email: req.body.email
+    })
 
     if (!user) {
       return res.status(401).json({
