@@ -24,12 +24,9 @@ export const SquareHeaderX = () => {
   const [randomNumbers, setRandomNumbers] = useState(numbers)
   const [shuffled, setShuffled] = useState(false)
 
-  // Change shuffle to random numbers to display
   useEffect(() => {
-    // console.log('show numbers ', process.env.SHOW_NUMBERS)
-    // if (!process.env.SHOW_NUMBERS) return
-
-    if (shuffled) return
+    // CHANGE TO (shuffle) FOR RANDOM #'S TO DISPLAY
+    if (!shuffled) return
     setRandomNumbers(shuffle(numbers))
     setShuffled(true)
   }, [shuffled, randomNumbers])
@@ -48,11 +45,15 @@ export const SquareHeaderY = () => {
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   const [randomNumbers, setRandomNumbers] = useState(numbers)
-  const [shuffled, setShuffled] = useState(false)
+  const [
+    shuffled,
+    setShuffled
+  ] = useState(false)
 
-  // Change shuffle to random numbers to display
   useEffect(() => {
-    if (shuffled) return
+    // CHANGE TO (shuffle) FOR RANDOM #'S TO DISPLAY
+    if (!shuffled) return
+
     setRandomNumbers(shuffle(randomNumbers))
     setShuffled(true)
   }, [shuffled, randomNumbers])
